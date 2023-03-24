@@ -1,0 +1,61 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: center url(img/ireland-national-park.jpg) no-repeat;
+  background-image: url(img/ireland-national-park.jpg);
+  text-align: center;
+}
+h1,
+h2,
+h3 {
+  position: relative;
+  color: black;
+}
+h1 {
+  font-size: 36px;
+  padding: 10px;
+  margin: 0 auto;
+}
+form {
+  padding: 20px;
+}
+p {
+  display: block;
+}
+ul {
+  list-style: none;
+}
+footer {
+  font-size: 12px;
+  padding-top: 20px;
+}
+.outer-border {
+  text-align: center;
+  border: none;
+  border-radius: 100px;
+  padding: 30px 30px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: 20%;
+  margin-right: 20%;
+  box-shadow: 0px 0px 50px 10px rgba(78, 8, 114, 0.5);
+  background-color: rgba(236, 214, 255, 0.596);
+}
+.current-weather {
+  padding: 30px;
+}
+.current-temp {
+  font-size: 48px;
+  font-weight: 600;
+}
+.weather-emoji {
+  font-size: 72px;
+}
+.container-text-center {
+  padding: 30px auto;
+  margin: 20px;
+  line-height: 150%;
+}
+.weather-day {
+  padding-top: 0 auto;
+  font-weight: 500;
+}
