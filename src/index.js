@@ -13,16 +13,28 @@ window.onload = displayCurrentTime;
 function showWeather(response) {
   console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
-  let temp_max = Math.round(response.data.main.temp_max);
-  let temp_min = Math.round(response.data.main.temp_min);
   let displayTemp = document.querySelector(".current-temp");
   displayTemp.innerHTML = `${temperature}℉`;
   let changeCity = document.querySelector(".current-city");
   changeCity.innerHTML = response.data.name;
+  let temp_max = Math.round(response.data.main.temp_max);
   let changeMaxTemp = document.querySelector("#max-temp");
   changeMaxTemp.innerHTML = `${temp_max}`;
+  let temp_min = Math.round(response.data.main.temp_min);
   let changeMinTemp = document.querySelector("#min-temp");
   changeMinTemp.innerHTML = `${temp_min}`;
+  let humidity = Math.round(response.data.main.humidity);
+  let changeHumidity = document.querySelector("#humidity");
+  changeHumidity.innerHTML = `${humidity}%`;
+  let feelsLike = Math.round(response.data.main.feels_like);
+  let changeFeelsLike = document.querySelector("#feels-like");
+  changeFeelsLike.innerHTML = `${feelsLike}`;
+  let windSpeed = Math.round(response.data.wind.speed);
+  let changeWindSpeed = document.querySelector("#windspeed");
+  changeWindSpeed.innerHTML = `${windSpeed} mph`;
+  let pressure = Math.round(response.data.main.pressure);
+  let changePressure = document.querySelector("#pressure");
+  changePressure.innerHTML = `${pressure} in`;
 }
 
 function currentPosition(position) {
