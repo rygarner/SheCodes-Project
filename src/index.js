@@ -6,6 +6,40 @@ function displayCurrentTime() {
   const options = { hour: "numeric", minute: "numeric" };
   const currentTime = now.toLocaleTimeString([], options);
   document.getElementById("time").textContent = currentTime;
+
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  let month = months[now.getMonth()];
+  let day = days[now.getDay()];
+  const year = now.getFullYear();
+  const currentDate = now.getDate();
+  document.getElementById(
+    "current-date"
+  ).textContent = `${day}, ${month} ${currentDate}, ${year}`;
+
+  console.log(now);
 }
 
 window.onload = displayCurrentTime;
@@ -32,9 +66,9 @@ function showWeather(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   let changeWindSpeed = document.querySelector("#windspeed");
   changeWindSpeed.innerHTML = `${windSpeed} mph`;
-  let pressure = Math.round(response.data.main.pressure);
-  let changePressure = document.querySelector("#pressure");
-  changePressure.innerHTML = `${pressure} in`;
+  let description = response.data.weather[0].description;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = `${description}`;
 }
 
 function currentPosition(position) {
