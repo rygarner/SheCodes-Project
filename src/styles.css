@@ -8,7 +8,7 @@ h1,
 h2,
 h3 {
   position: relative;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 h1 {
   font-size: 36px;
@@ -27,6 +27,9 @@ ul {
 footer {
   font-size: 12px;
   padding-top: 20px;
+}
+units {
+  padding-bottom: 20px;
 }
 .outer-border {
   text-align: center;
@@ -58,4 +61,7 @@ footer {
 .weather-day {
   padding-top: 0 auto;
   font-weight: 500;
+}
+#description {
+  text-transform: capitalize;
 }
