@@ -11,11 +11,18 @@ function displayCurrentTime() {
 window.onload = displayCurrentTime;
 
 function showWeather(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
+  let temp_max = Math.round(response.data.main.temp_max);
+  let temp_min = Math.round(response.data.main.temp_min);
   let displayTemp = document.querySelector(".current-temp");
   displayTemp.innerHTML = `${temperature}℉`;
   let changeCity = document.querySelector(".current-city");
   changeCity.innerHTML = response.data.name;
+  let changeMaxTemp = document.querySelector("#max-temp");
+  changeMaxTemp.innerHTML = `${temp_max}`;
+  let changeMinTemp = document.querySelector("#min-temp");
+  changeMinTemp.innerHTML = `${temp_min}`;
 }
 
 function currentPosition(position) {
