@@ -44,6 +44,67 @@ function displayCurrentTime() {
 
 window.onload = displayCurrentTime;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = '<div class ="row justify-content-evenly">';
+  forecastHTML =
+    forecastHTML +
+    `<div class="col-2">
+      <div class="weather-forecast-date">Mon</div>
+        <img
+          src="https://openweathermap.org/img/wn/10d@2x.png"
+          alt="Weather Icon"/>
+          <br/>
+        <span class="forecast-max">--</span>/<span class="forecast-min">--</span>
+      </div>`;
+
+  forecastHTML =
+    forecastHTML +
+    `<div class="col-2">
+      <div class="weather-forecast-date">Mon</div>
+        <img
+          src="https://openweathermap.org/img/wn/10d@2x.png"
+          alt="Weather Icon"/>
+          <br/>
+        <span class="forecast-max">--</span>/<span class="forecast-min">--</span>
+      </div>`;
+  forecastHTML =
+    forecastHTML +
+    `<div class="col-2">
+      <div class="weather-forecast-date">Mon</div>
+        <img
+          src="https://openweathermap.org/img/wn/10d@2x.png"
+          alt="Weather Icon"/>
+          <br/>
+        <span class="forecast-max">--</span>/<span class="forecast-min">--</span>
+      </div>`;
+
+  forecastHTML =
+    forecastHTML +
+    `<div class="col-2">
+      <div class="weather-forecast-date">Mon</div>
+        <img
+          src="https://openweathermap.org/img/wn/10d@2x.png"
+          alt="Weather Icon"/>
+          <br/>
+        <span class="forecast-max">--</span>/<span class="forecast-min">--</span>
+      </div>`;
+
+  forecastHTML =
+    forecastHTML +
+    `<div class="col-2">
+       <div class="weather-forecast-date">Mon</div>
+        <img
+          src="https://openweathermap.org/img/wn/10d@2x.png"
+          alt="Weather Icon"/>
+          <br/>
+        <span class="forecast-max">--</span>/<span class="forecast-min">--</span>
+      </div>`;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showWeather(response) {
   console.log(response.data);
 
@@ -95,6 +156,8 @@ function searchCity(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
+
+displayForecast();
 
 function showGeoLocation(event) {
   event.preventDefault();
