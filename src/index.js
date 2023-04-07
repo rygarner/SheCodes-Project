@@ -1,5 +1,6 @@
 //let apiKey = "67628a8e6b77943e6a0a6b36c4e89eec"
 //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+// Forecast API = https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}&units=imperial
 
 function displayCurrentTime() {
   const now = new Date();
@@ -44,19 +45,12 @@ function displayCurrentTime() {
 
 window.onload = displayCurrentTime;
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = '<div class ="row justify-content-evenly">';
-  let days = [
-    "Sun",
-    "Mon",
-    "Tues",
-    "Wed",
-    "Thurs",
-    "Fri",
-    "Sat",
-  ];
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -67,10 +61,18 @@ function displayForecast() {
           alt="Weather Icon"/>
           <br/>
         <span class="forecast-max">--</span>/<span class="forecast-min">--</span>
-      </div>`; 
-  })
+      </div>`;
+  });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "c119ffef35b7245a5e03b6e5724ae961";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showWeather(response) {
@@ -107,6 +109,8 @@ function showWeather(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function currentPosition(position) {
@@ -124,8 +128,6 @@ function searchCity(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
-
-displayForecast();
 
 function showGeoLocation(event) {
   event.preventDefault();
