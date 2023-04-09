@@ -58,7 +58,8 @@ function displayForecast(response) {
 
   let forecastElement = document.querySelector("#forecast");
 
-  let forecastHTML = '<div class ="row justify-content-evenly">';
+  let forecastHTML =
+    '<div class ="row justify-content-evenly forecast-entrance">';
 
   forecast.forEach(function (forecastDay, index) {
     forecastFahrenheitMax[index] = forecastDay.temp.max;
@@ -66,7 +67,7 @@ function displayForecast(response) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
-        `<div class="col-2">
+        `<div class="col-2 weather-forecast-day">
       <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
         <img
           src="https://openweathermap.org/img/wn/${
