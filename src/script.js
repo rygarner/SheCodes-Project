@@ -1,7 +1,3 @@
-//let apiKey = "67628a8e6b77943e6a0a6b36c4e89eec"
-//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-// Forecast API = https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}&units=imperial
-
 function displayCurrentTime() {
   const now = new Date();
   const options = { hour: "numeric", minute: "numeric" };
