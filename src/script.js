@@ -60,7 +60,7 @@ function displayForecast(response) {
   forecast.forEach(function (forecastDay, index) {
     forecastFahrenheitMax[index] = forecastDay.temp.max;
     forecastFahrenheitMin[index] = forecastDay.temp.min;
-    if (index < 6) {
+    if ((index > 0) & (index <= 6)) {
       forecastHTML =
         forecastHTML +
         `<div class="col-2 weather-forecast-day">
