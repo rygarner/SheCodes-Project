@@ -60,7 +60,7 @@ function displayForecast(response) {
   forecast.forEach(function (forecastDay, index) {
     forecastFahrenheitMax[index] = forecastDay.temp.max;
     forecastFahrenheitMin[index] = forecastDay.temp.min;
-    if ((index > 0) & (index <= 6)) {
+    if ((0 < index) & (index <= 6)) {
       forecastHTML =
         forecastHTML +
         `<div class="col-2 weather-forecast-day">
@@ -171,7 +171,7 @@ function displayCelsiusTemperature(event) {
   let changeTempMin = document.querySelector("#min-temp");
   changeTempMin.innerHTML = `${Math.round(temp_min)}°`;
 
-  for (let i = 0; i < 6; i++) {
+  for (let i = 1; i < 7; i++) {
     let celsiusForecast = (forecastFahrenheitMax[i] - 32) / 1.8;
     let celsiusMax = document.querySelector(`#forecast-max${i}`);
     celsiusMax.innerHTML = `${Math.round(celsiusForecast)}°`;
@@ -198,7 +198,7 @@ function displayFahrenheitTemperature(event) {
   let changeTempMin = document.querySelector("#min-temp");
   changeTempMin.innerHTML = `${Math.round(temp_min)}°`;
 
-  for (let i = 0; i < 6; i++) {
+  for (let i = 1; i < 7; i++) {
     let fahrenheitForecast = forecastFahrenheitMax[i];
     let fahrenheitMax = document.querySelector(`#forecast-max${i}`);
     fahrenheitMax.innerHTML = `${Math.round(fahrenheitForecast)}°`;
